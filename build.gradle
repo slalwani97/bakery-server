@@ -1,0 +1,47 @@
+buildscript {
+	
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	// Spring Dependencies
+    //compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '1.5.3.RELEASE'
+    //compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '1.5.3.RELEASE'
+      
+    // MYSQL Database Dependencies
+    //compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.6'
+    //compile group: 'org.springframework', name: 'spring-jdbc', version: '4.3.7.RELEASE'
+    //compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '4.1.7.Final'
+    
+     compile("org.springframework.boot:spring-boot-starter-web")
+
+    // JPA Data (We are going to use Repositories, Entities, Hibernate, etc...)
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // https://mvnrepository.com/artifact/org.json/json
+    compile group: 'org.json', name: 'json', version: '20090211'
+
+    // Use MySQL Connector-J
+    compile 'mysql:mysql-connector-java'
+    
+
+    // Unit Testing Dependencies
+    compile group: 'junit', name: 'junit', version: '4.12'
+}
