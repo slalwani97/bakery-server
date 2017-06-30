@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityManager;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,9 +18,14 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 @Entity
 @Table(name = "order_details")
 public class OrderDetails implements Serializable {
+	
+	@Autowired
+	EntityManager em;
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -36,7 +42,7 @@ public class OrderDetails implements Serializable {
     @Column(name = "quantity_required")
     private Integer quantityRequired;
 	
-	@ManyToOne(fetch = FetchType.EAGER, targetEntity = Product.class, cascade = {CascadeType.MERGE,CascadeType.REFRESH})
+	@ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE,CascadeType.REFRESH})
 	@JoinColumn(name = "product_id")
 	private Product product;
 	
