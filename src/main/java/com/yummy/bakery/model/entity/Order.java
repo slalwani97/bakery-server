@@ -48,8 +48,9 @@ public class Order implements Serializable {
     @JoinColumn(name = "order_id")
 	private Set<OrderDetails> orderDetails;
 	
+	@GeneratedValue
 	@Temporal(TemporalType.TIMESTAMP)
-    @Column(name="time_stamp", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
+    @Column(name="time_stamp", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP", updatable=false, insertable=false)
     private Date date;
 	
 	public Order() {

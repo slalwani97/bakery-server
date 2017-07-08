@@ -6,6 +6,8 @@ import com.yummy.bakery.model.entity.Product;
 
 public interface ProductService {
 	
-	List<Product> getProducts();
+	public List<Product> getProducts();
+	
+	public Product getProductById(long id);
 
 }

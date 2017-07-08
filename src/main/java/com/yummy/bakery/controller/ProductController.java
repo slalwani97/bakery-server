@@ -22,6 +22,7 @@ public class ProductController {
 	@CrossOrigin
 	@RequestMapping(value = "/products", method = RequestMethod.GET)
 	public ResponseEntity<?> getProducts() {
+		System.out.println("Product Called.. ");
 		List<Product> products = productService.getProducts();
 		if (products.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
